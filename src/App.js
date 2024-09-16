@@ -1,26 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
 import React from 'react';
-import { fetchDragons, reserveDragon, cancelBooking } from './redux/dragons';
-import DragonsPage from './pages';
+import { DragonsProvider } from './context/DragonsContext';
+import DragonsList from './components/DragonsList';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DragonsProvider>
+      <div className="App">
+        <h1 className="text-4xl text-center my-6">Space Travelers' Hub - Dragons</h1>
+        <DragonsList />
+      </div>
+    </DragonsProvider>
   );
 }
 
