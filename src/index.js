@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { fetchDragons, reserveDragon, cancelBooking } from './dragonsActions';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

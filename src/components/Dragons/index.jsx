@@ -12,9 +12,24 @@ const Dragons = () => {
   }, [dispatch]);
 
   const renderContent = () => {
-    if (isLoading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error}</p>;
-    if (dragons.length === 0) return <p>No dragons available</p>;
+    if (isLoading)
+      return (
+        <p className="text-center text-blue-600 font-semibold">
+          Loading...
+        </p>
+      );
+    if (error)
+      return (
+        <p className="text-center text-red-600 font-semibold">
+          Error: {error}
+        </p>
+      );
+    if (dragons.length === 0)
+      return (
+        <p className="text-center text-gray-500">
+          No dragons available
+        </p>
+      );
 
     return dragons.map((item, index) => (
       <Dragon
@@ -30,10 +45,13 @@ const Dragons = () => {
   };
 
   return (
-    <div className="w-full p-5 flex flex-col mb-14">
+    <div className="w-full p-5 flex flex-col mb-14 bg-gray-100 shadow-lg rounded-md">
+      <h2 className="text-3xl font-bold text-center mb-6 text-indigo-700">
+        SpaceX Dragons
+      </h2>
       {renderContent()}
     </div>
   );
 };
 
-export default Dragons;
+export default Dragons;
