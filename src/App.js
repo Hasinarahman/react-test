@@ -1,10 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-import { fetchDragons, reserveDragon, cancelBooking } from './dragonsActions';
-
+import React from 'react';
+import { fetchDragons, reserveDragon, cancelBooking } from './redux/dragons';
+import DragonsPage from './pages';
 function App() {
   return (
     <div className="App">
