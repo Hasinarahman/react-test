@@ -1,21 +1,20 @@
-import React, { useEffect } from 'react';
-import { useDragons } from '../context/DragonsContext';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import DragonCard from './DragonCard';
 
-const DragonsList = () => {
-  const { dragons, fetchDragons } = useDragons();
-
-  useEffect(() => {
-    fetchDragons();
-  }, [fetchDragons]);
+const DragonList = () => {
+  const dragons = useSelector((state) => state.dragons.dragons);
 
   return (
-    <div className="flex flex-wrap justify-center">
-      {dragons.map(dragon => (
-        <DragonCard key={dragon.id} dragon={dragon} />
-      ))}
+    <div className="container mx-auto py-8">
+      <h1 className="text-3xl font-bold mb-6 text-center">Dragons</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {dragons.map((dragon) => (
+          <DragonCard key={dragon.id} dragon={dragon} />
+        ))}
+      </div>
     </div>
   );
 };
 
-export default DragonsList;
+export default DragonList;

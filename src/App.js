@@ -1,14 +1,11 @@
-import { DragonsProvider } from './context/DragonsContext';
-import DragonsList from './components/DragonsList';
+import React from 'react';
+import DragonList from '../src/components/DragonsList';
 
 function App() {
   return (
-    <DragonsProvider>
-      <div className="App">
-        <h1 className="text-4xl text-center my-6">Space Travelers' Hub - Dragons</h1>
-        <DragonsList />
-      </div>
-    </DragonsProvider>
+    <div className="min-h-screen bg-gray-100">
+      <DragonList />
+    </div>
   );
 }
 

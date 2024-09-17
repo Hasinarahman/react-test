@@ -1,22 +1,27 @@
 import React from 'react';
-import { useDragons } from '../context/DragonsContext';
+import { useDispatch } from 'react-redux';
+import { toggleReservation } from '../redux/dragonsSlice';
 
 const DragonCard = ({ dragon }) => {
-  const { toggleReservation } = useDragons();
+  const dispatch = useDispatch();
+
+  const handleReservation = () => {
+    dispatch(toggleReservation(dragon.id));
+  };
 
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 m-4 bg-gradient-to-r from-gray-800 to-gray-900 text-white">
-      <img className="w-full h-48 object-cover" src={dragon.flickr_images[0]} alt={`Dragon ${dragon.name}`} />
-      <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{dragon.name}</div>
-        <p className="text-gray-300 text-base">
-          {dragon.description}
-        </p>
+    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+      <img src={dragon.image} alt={dragon.name} className="w-full h-64 object-cover" />
+      <div className="p-6">
+        <h2 className="text-2xl font-bold mb-2">{dragon.name}</h2>
+        <p className="text-gray-700 mb-4">{dragon.description}</p>
         <button
-          onClick={() => toggleReservation(dragon.id)}
-          className={`mt-4 py-2 px-4 rounded ${dragon.isReserved ? 'bg-red-500 hover:bg-red-700' : 'bg-blue-500 hover:bg-blue-700'} text-white font-bold transition-colors duration-300`}
+          onClick={handleReservation}
+          className={`${
+            dragon.reserved ? 'bg-red-500' : 'bg-blue-500'
+          } text-white px-4 py-2 rounded-md`}
         >
-          {dragon.isReserved ? 'Cancel Reservation' : 'Reserve'}
+          {dragon.reserved ? 'Cancel Reservation' : 'Reserve Dragon'}
         </button>
       </div>
     </div>
