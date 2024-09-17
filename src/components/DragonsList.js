@@ -7,7 +7,7 @@ const DragonsList = () => {
 
   useEffect(() => {
     fetchDragons();
-  }, []);
+  }, [fetchDragons]);
 
   return (
     <div className="flex flex-wrap justify-center">
