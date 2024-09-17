@@ -1,4 +1,3 @@
-import React from 'react';
 import { DragonsProvider } from './context/DragonsContext';
 import DragonsList from './components/DragonsList';
 
